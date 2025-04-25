@@ -13,7 +13,7 @@ namespace ProyectoTaller.CDatos
     public class ProductoDatosPA
     {
         private ConexionBD conexion = new ConexionBD();
-        public List<Producto> ObtenerProductos(){
+        public List<Producto> buscarProductos(){
 
             List<Producto> listaProducto = new List<Producto>();
             
@@ -57,7 +57,7 @@ namespace ProyectoTaller.CDatos
              return listaProducto;
         }
 
-        public void guardarProducto(Producto producto)
+        public void registrarProducto(Producto producto)
         {
 
 

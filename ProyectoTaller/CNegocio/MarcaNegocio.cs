@@ -17,7 +17,7 @@ namespace ProyectoTaller.CNegocio
         public List<Marca> ListarMarca()
         {
             MarcaDatos = new MarcaDatos();
-            return MarcaDatos.ObtenerMarcas();
+            return MarcaDatos.buscarMarcas();
         }
 
         public List<MarcaDTO> buscarMarcasMasVendidaPorFecha(DateTime desde, DateTime hasta)

@@ -20,13 +20,13 @@ namespace ProyectoTaller.Views.Administradores
         {
             InitializeComponent();
             productoNegocio = new ProductoNegocio();
-            CargarMarcas();
+            cargarMarcas();
             CargarCondicion();
             CargarProductos();
            
         }
 
-        private void CargarMarcas()
+        private void cargarMarcas()
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             List<Marca> marcas = marcaNegocio.ListarMarca();
@@ -269,7 +269,7 @@ namespace ProyectoTaller.Views.Administradores
 
                             LValido.Text = "Producto editado exitosamente.";
                             CargarCondicion();
-                            CargarMarcas();
+                            cargarMarcas();
                             CargarProductos();
                             TModelo.ReadOnly = false;
                             TModelo.BackColor = Color.White;
@@ -309,7 +309,7 @@ namespace ProyectoTaller.Views.Administradores
                         LimpiarCampos();
                         CargarCondicion();
                         CargarProductos();
-                        CargarMarcas();
+                        cargarMarcas();
                     }
                 }
             }
@@ -576,7 +576,7 @@ namespace ProyectoTaller.Views.Administradores
 
         private void CargarProductos()
         {
-            List <ProductoDTO> productos = productoNegocio.listarProductos();
+            List <ProductoDTO> productos = productoNegocio.cargarProductos();
             DGProductos.DataSource = productos;
         }
 

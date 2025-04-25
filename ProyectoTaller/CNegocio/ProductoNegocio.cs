@@ -12,11 +12,11 @@ namespace ProyectoTaller.CNegocio
     public class ProductoNegocio
     {
         private ProductoDatosPA productosDatos;
-        public List<ProductoDTO> listarProductos() { 
+        public List<ProductoDTO> cargarProductos() { 
             List<ProductoDTO> listaProductos = new List<ProductoDTO>();
             productosDatos = new ProductoDatosPA();
 
-            foreach (var p in productosDatos.ObtenerProductos())
+            foreach (var p in productosDatos.buscarProductos())
             {
                 ProductoDTO productoDTO = new ProductoDTO
                 {
@@ -43,7 +43,7 @@ namespace ProyectoTaller.CNegocio
             List<ProductoDTO> listaProductos = new List<ProductoDTO>();
             productosDatos = new ProductoDatosPA();
 
-            foreach (var p in productosDatos.ObtenerProductos())
+            foreach (var p in productosDatos.buscarProductos())
             {
                 if (p.Stock_Producto > 0 && p.Condicion.Descripcion_Condicion == "ACTIVO")
                 {
@@ -79,7 +79,7 @@ namespace ProyectoTaller.CNegocio
         public void guardarProducto(Producto producto)
         {
             productosDatos = new ProductoDatosPA();
-            productosDatos.guardarProducto(producto);
+            productosDatos.registrarProducto(producto);
             
         }
 
