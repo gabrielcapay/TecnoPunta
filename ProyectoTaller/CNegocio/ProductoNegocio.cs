@@ -11,10 +11,10 @@ namespace ProyectoTaller.CNegocio
 {
     public class ProductoNegocio
     {
-        private ProductoDatos productosDatos;
+        private ProductoDatosPA productosDatos;
         public List<ProductoDTO> listarProductos() { 
             List<ProductoDTO> listaProductos = new List<ProductoDTO>();
-            productosDatos = new ProductoDatos();
+            productosDatos = new ProductoDatosPA();
 
             foreach (var p in productosDatos.ObtenerProductos())
             {
@@ -41,7 +41,7 @@ namespace ProyectoTaller.CNegocio
         public List<ProductoDTO> listarProductosConStock()
         {
             List<ProductoDTO> listaProductos = new List<ProductoDTO>();
-            productosDatos = new ProductoDatos();
+            productosDatos = new ProductoDatosPA();
 
             foreach (var p in productosDatos.ObtenerProductos())
             {
@@ -71,21 +71,21 @@ namespace ProyectoTaller.CNegocio
 
         public void actualizarProducto(Producto producto)
         {
-            productosDatos = new ProductoDatos();
+            productosDatos = new ProductoDatosPA();
             productosDatos.ActualizarProducto(producto);   
 
         }
 
         public void guardarProducto(Producto producto)
         {
-            productosDatos = new ProductoDatos();
+            productosDatos = new ProductoDatosPA();
             productosDatos.guardarProducto(producto);
             
         }
 
         public Producto buscarProductoBYID(string modelo)
         {
-            productosDatos = new ProductoDatos();
+            productosDatos = new ProductoDatosPA();
             return productosDatos.buscarProductoByID(modelo);
         }
     }
