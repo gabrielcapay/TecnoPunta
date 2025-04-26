@@ -94,7 +94,7 @@ namespace ProyectoTaller.CDatos
             }
         }
 
-        public void ActualizarProducto(Producto producto)
+        public void modificarProducto(Producto producto)
         {
             using (SqlConnection connection = conexion.ObtenerConexion())
             {

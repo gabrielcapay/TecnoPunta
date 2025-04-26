@@ -72,7 +72,7 @@ namespace ProyectoTaller.CNegocio
         public void actualizarProducto(Producto producto)
         {
             productosDatos = new ProductoDatosPA();
-            productosDatos.ActualizarProducto(producto);   
+            productosDatos.modificarProducto(producto);   
 
         }
 
