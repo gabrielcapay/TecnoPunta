@@ -3,7 +3,7 @@
 
 
 ## Credenciales
-DEEZ
+
 |Tipo de usuario| Contraseña|
 |--|--|
 | Admin |12345  |
