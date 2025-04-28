@@ -91,7 +91,7 @@ namespace ProyectoTaller.Views.Gerentes
             else if (CBListaPrecios.Enabled == true && CBListaClientes.Enabled == false && CBReporteVentas.Enabled == false)
             {
                 ProductoNegocio productoNegocio = new ProductoNegocio();
-                var documento = new ListaDePrecio(productoNegocio.listarProductos());
+                var documento = new ListaDePrecio(productoNegocio.cargarProductos());
                 documento.crearDocumento();
             }
             else if (CBReporteVentas.Enabled == true && CBListaPrecios.Enabled == false && CBListaClientes.Enabled == false)

@@ -1,0 +1,8 @@
+== Instrucciones para ejecutar los procedimientos ==
+
+1. Abrir SQL Server Management Studio.
+2. Conectarse a la base de datos TecnoPunta.
+3. Abrir cada archivo .sql de esta carpeta.
+4. Ejecutar para crear los procedimientos almacenados.
+
+Importante: deben ejecutarse antes de utilizar las funciones del sistema.

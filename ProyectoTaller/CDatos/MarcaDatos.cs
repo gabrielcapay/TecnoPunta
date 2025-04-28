@@ -13,7 +13,7 @@ namespace ProyectoTaller.CDatos
     {
         private ConexionBD conexion = new ConexionBD();
 
-        public List<Marca> ObtenerMarcas()
+        public List<Marca> buscarMarcas()
         {
             List<Marca> marcas = new List<Marca>();
 

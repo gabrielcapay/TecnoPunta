@@ -11,12 +11,12 @@ namespace ProyectoTaller.CNegocio
 {
     public class ProductoNegocio
     {
-        private ProductoDatos productosDatos;
-        public List<ProductoDTO> listarProductos() { 
+        private ProductoDatosPA productosDatos;
+        public List<ProductoDTO> cargarProductos() { 
             List<ProductoDTO> listaProductos = new List<ProductoDTO>();
-            productosDatos = new ProductoDatos();
+            productosDatos = new ProductoDatosPA();
 
-            foreach (var p in productosDatos.ObtenerProductos())
+            foreach (var p in productosDatos.buscarProductos())
             {
                 ProductoDTO productoDTO = new ProductoDTO
                 {
@@ -41,9 +41,9 @@ namespace ProyectoTaller.CNegocio
         public List<ProductoDTO> listarProductosConStock()
         {
             List<ProductoDTO> listaProductos = new List<ProductoDTO>();
-            productosDatos = new ProductoDatos();
+            productosDatos = new ProductoDatosPA();
 
-            foreach (var p in productosDatos.ObtenerProductos())
+            foreach (var p in productosDatos.buscarProductos())
             {
                 if (p.Stock_Producto > 0 && p.Condicion.Descripcion_Condicion == "ACTIVO")
                 {
@@ -71,22 +71,34 @@ namespace ProyectoTaller.CNegocio
 
         public void actualizarProducto(Producto producto)
         {
-            productosDatos = new ProductoDatos();
-            productosDatos.ActualizarProducto(producto);   
+            productosDatos = new ProductoDatosPA();
+            productosDatos.modificarProducto(producto);   
 
         }
 
         public void guardarProducto(Producto producto)
         {
-            productosDatos = new ProductoDatos();
-            productosDatos.guardarProducto(producto);
+            productosDatos = new ProductoDatosPA();
+            productosDatos.registrarProducto(producto);
             
         }
 
         public Producto buscarProductoBYID(string modelo)
         {
-            productosDatos = new ProductoDatos();
+            productosDatos = new ProductoDatosPA();
             return productosDatos.buscarProductoByID(modelo);
+        }
+
+        public void validarDatos(Producto producto)
+        {
+            ProductoDatosPA productoDatos = new ProductoDatosPA();
+            productoDatos.validarProducto(producto);
+        }
+
+        public void modificarEstadoProducto(string modeloProducto)
+        {
+            ProductoDatosPA productoDatos = new ProductoDatosPA();
+            productoDatos.cambiarEstadoProducto(modeloProducto);
         }
     }
 }

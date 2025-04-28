@@ -4,29 +4,30 @@ using ProyectoTaller.CNegocio;
 using ProyectoTaller.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace ProyectoTaller.Views.Administradores
 {
-    public partial class AgregarProducto : Form
-    {
-        private bool editando = false;
-        private int filaSeleccionadaIndex = -1;
-        private ProductoNegocio productoNegocio;
+        public partial class AgregarProducto : Form
+        {
+            private bool editando = false;
+            private int filaSeleccionadaIndex = -1;
+            private ProductoNegocio productoNegocio;
 
         public AgregarProducto()
         {
             InitializeComponent();
             productoNegocio = new ProductoNegocio();
-            CargarMarcas();
+            cargarMarcas();
             CargarCondicion();
             CargarProductos();
            
         }
 
-        private void CargarMarcas()
+        private void cargarMarcas()
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             List<Marca> marcas = marcaNegocio.ListarMarca();
@@ -45,7 +46,6 @@ namespace ProyectoTaller.Views.Administradores
         }
         private void BAgregar_Click(object sender, EventArgs e)
         {
-            LimpiarMensajesDeValidacion();
             BAgregar.Text = "Agregar";
 
             string marca = CBMarca.SelectedItem?.ToString();
@@ -58,262 +58,102 @@ namespace ProyectoTaller.Views.Administradores
             string stockTexto = TStock.Text;
             string precioTexto = TPrecio.Text;
 
-            // Validaciones
-            bool valido = true;
+            string mensaje = editando ? "¿Está seguro que desea modificar el producto?" : "¿Está seguro que desea agregar el producto?";
+            var result = MessageBox.Show(mensaje, "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (string.IsNullOrEmpty(marca))
+            if (result == DialogResult.Yes)
             {
-                LValiMarca.ForeColor = Color.Red;
-                LValiMarca.Text = "Seleccione una Marca.";
-                valido = false;
-            }
-            else
-            {
-                LValiMarca.Text = string.Empty;
-            }
-
-            if (string.IsNullOrWhiteSpace(nombreProducto))
-            {
-                LValiNombre.ForeColor = Color.Red;
-                LValiNombre.Text = "Ingrese el nombre del producto.";
-                valido = false;
-            }
-            else if (nombreProducto.Length < 5)
-            {
-                LValiNombre.ForeColor = Color.Red;
-                LValiNombre.Text = "Al menos 5 caracteres.";
-                valido = false;
-            }
-            else if (!System.Text.RegularExpressions.Regex.IsMatch(nombreProducto, @"^[a-zA-Z0-9]"))
-            {
-                LValiNombre.ForeColor = Color.Red;
-                LValiNombre.Text = "El Nombre debe contener solo letras y números.";
-                valido = false;
-            }
-            else
-            {
-                LValiNombre.Text = string.Empty;
-            }
-
-            if (string.IsNullOrWhiteSpace(modelo))
-            {
-                LValiModelo.ForeColor = Color.Red;
-                LValiModelo.Text = "Ingrese un modelo.";
-                valido = false;
-            }
-            else if (modelo.Length < 3 || modelo.Length > 12)
-            {
-                LValiModelo.ForeColor = Color.Red;
-                LValiModelo.Text = "Modelo de 3 a 12 caracteres.";
-                valido = false;
-            }
-            else if (!System.Text.RegularExpressions.Regex.IsMatch(modelo, @"^[a-zA-Z0-9]"))
-            {
-                LValiModelo.ForeColor = Color.Red;
-                LValiModelo.Text = "El modelo debe contener solo letras y números.";
-                valido = false;
-            }
-            else
-            {
-                LValiModelo.Text = string.Empty;
-            }
-
-            if (string.IsNullOrWhiteSpace(sistemaOperativo))
-            {
-                LValiSo.ForeColor = Color.Red;
-                LValiSo.Text = "Ingrese un Sistema Operativo.";
-                valido = false;
-            }
-            else if (!System.Text.RegularExpressions.Regex.IsMatch(sistemaOperativo, @"^[a-zA-Z0-9]"))
-            {
-                LValiSo.ForeColor = Color.Red;
-                LValiSo.Text = "El S.O debe contener solo letras y números.";
-                valido = false;
-            }
-            else if (sistemaOperativo.Length < 2 || sistemaOperativo.Length > 20)
-            {
-                LValiSo.ForeColor = Color.Red;
-                LValiSo.Text = "S.O de 2 a 20 caracteres.";
-                valido = false;
-            }
-            else
-            {
-                LValiSo.Text = string.Empty;
-            }
-
-            if (string.IsNullOrWhiteSpace(almacenamientoTexto))
-            {
-                LValiAlmacenamiento.ForeColor = Color.Red;
-                LValiAlmacenamiento.Text = "Ingrese un almacenamiento.";
-                valido = false;
-            }
-            else if (!int.TryParse(almacenamientoTexto, out int almacenamiento))
-            {
-                LValiAlmacenamiento.ForeColor = Color.Red;
-                LValiAlmacenamiento.Text = "El almacenamiento debe ser un número entero.";
-                valido = false;
-            }
-            else if (almacenamiento <= 32 || almacenamiento > 1024)
-            {
-                LValiAlmacenamiento.ForeColor = Color.Red;
-                LValiAlmacenamiento.Text = "El almacenamiento debe estar entre 32 y 1024 GB.";
-                valido = false;
-            }
-            else
-            {
-                LValiAlmacenamiento.Text = string.Empty;
-            }
-
-            if (string.IsNullOrWhiteSpace(ramTexto))
-            {
-                LValiRam.ForeColor = Color.Red;
-                LValiRam.Text = "Ingrese una Ram";
-                valido = false;
-            }
-            else if (!int.TryParse(ramTexto, out int ram))
-            {
-                LValiRam.ForeColor = Color.Red;
-                LValiRam.Text = "La Ram debe ser un número entero.";
-                valido = false;
-            }
-            else if (ram <= 1 || ram > 32)
-            {
-                LValiRam.ForeColor = Color.Red;
-                LValiRam.Text = "La Ram debe estar entre 1 y 32 GB.";
-                valido = false;
-            }
-            else
-            {
-                LValiRam.Text = string.Empty;
-            }
-
-            if (string.IsNullOrWhiteSpace(stockTexto))
-            {
-                LValiStock.ForeColor = Color.Red;
-                LValiStock.Text = "Ingrese un stock.";
-                valido = false;
-            }
-            else if (!int.TryParse(stockTexto, out int stock))
-            {
-                LValiStock.ForeColor = Color.Red;
-                LValiStock.Text = "El Stock debe ser un número entero.";
-                valido = false;
-            }
-            else if (stock <= 1 || stock > 1500)
-            {
-                LValiStock.ForeColor = Color.Red;
-                LValiStock.Text = "Stock hasta 1500 unidades.";
-                valido = false;
-            }
-            else
-            {
-                LValiStock.Text = string.Empty;
-            }
-
-            if (string.IsNullOrWhiteSpace(precioTexto))
-            {
-                LValiPrecio.ForeColor = Color.Red;
-                LValiPrecio.Text = "Ingrese un precio.";
-                valido = false;
-            }
-            else if (!decimal.TryParse(precioTexto, out decimal precio))
-            {
-                LValiPrecio.ForeColor = Color.Red;
-                LValiPrecio.Text = "El Precio debe ser un número decimal.";
-                valido = false;
-            }
-            else
-            {
-                LValiPrecio.Text = string.Empty;
-            }
-
-            if (string.IsNullOrEmpty(estado))
-            {
-                LValiEstado.ForeColor = Color.Red;
-                LValiEstado.Text = "Seleccione un Estado.";
-                valido = false;
-            }
-            else
-            {
-                LValiEstado.Text = string.Empty;
-            }
-
-            if (valido)
-            {
-                LimpiarMensajesDeValidacion();
-
-                string mensaje = editando ? "¿Está seguro que desea modificar el producto?" : "¿Está seguro que desea agregar el producto?";
-                var result = MessageBox.Show(mensaje, "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
+                if (editando)
                 {
-                    if (editando)
+                    if (filaSeleccionadaIndex >= 0)
                     {
-                        if (filaSeleccionadaIndex >= 0)
+                        Producto productoActualizar = new Producto
                         {
-                           
-                            Producto productoActualizar = new Producto
-                            {
-                                Modelo_Producto = TModelo.Text,
-                                Nombre_Producto = TNombreProducto.Text,
-                                SistemaOperativo_Producto = TSo.Text,
-                                Almacenamiento_Producto = TAlmacenamiento.Text,
-                                Ram_Producto = TRam.Text,
-                                Stock_Producto = int.Parse(TStock.Text),
-                                Precio_Producto = decimal.Parse(TPrecio.Text),
-                                Marca = CBMarca.SelectedItem as Marca,
-                                Condicion = CBEstado.SelectedItem as Condicion
-                            };
+                            Modelo_Producto = modelo,
+                            Nombre_Producto = nombreProducto,
+                            SistemaOperativo_Producto = sistemaOperativo,
+                            Almacenamiento_Producto = almacenamientoTexto,
+                            Ram_Producto = ramTexto,
+                            Stock_Producto = int.Parse(stockTexto),
+                            Precio_Producto = decimal.Parse(precioTexto),
+                            Marca = CBMarca.SelectedItem as Marca,
+                            Condicion = CBEstado.SelectedItem as Condicion
+                        };
+
+                        try
+                        {
                             productoNegocio = new ProductoNegocio();
-                            productoNegocio.actualizarProducto(productoActualizar);
+                            productoNegocio.validarDatos(productoActualizar); // Validar en base de datos
+                            productoNegocio.actualizarProducto(productoActualizar); // Actualizar si valida
 
                             LValido.Text = "Producto editado exitosamente.";
                             CargarCondicion();
-                            CargarMarcas();
+                            cargarMarcas();
                             CargarProductos();
                             TModelo.ReadOnly = false;
                             TModelo.BackColor = Color.White;
+                            LimpiarCampos();
+                            editando = true;
                         }
-
-                        editando = false;
-                        filaSeleccionadaIndex = -1;
-
-                        LimpiarCampos();
+                        catch (SqlException ex)
+                        {
+                            this.seleccionandDatos();
+                            MessageBox.Show("Error al validar el producto: " + ex.Message, "Validación fallida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                          
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error inesperado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.seleccionandDatos();
+                        }
                     }
-                    else
+                    filaSeleccionadaIndex = -1;
+                    editando = false;
+
+
+
+                }
+                else
+                {
+                    Producto productoGuardar = new Producto
                     {
-                        if (!ValidarModelo(TModelo.Text))
-                        {
-                            return;
-                        }
+                        Modelo_Producto = modelo,
+                        Nombre_Producto = nombreProducto,
+                        SistemaOperativo_Producto = sistemaOperativo,
+                        Almacenamiento_Producto = almacenamientoTexto,
+                        Ram_Producto = ramTexto,
+                        Stock_Producto = int.TryParse(TStock.Text, out var s) ? s : 0,
+                        Precio_Producto = decimal.TryParse(TPrecio.Text, out var p) ? p : 0m,
+                        Marca = CBMarca.SelectedItem as Marca,
+                        Condicion = CBEstado.SelectedItem as Condicion
+                    };
 
-                        Producto productoGuardar = new Producto
-                        {
-                            Modelo_Producto = TModelo.Text,
-                            Nombre_Producto = TNombreProducto.Text,
-                            SistemaOperativo_Producto = TSo.Text,
-                            Almacenamiento_Producto = TAlmacenamiento.Text,
-                            Ram_Producto = TRam.Text,
-                            Stock_Producto = int.Parse(TStock.Text), 
-                            Precio_Producto = decimal.Parse(TPrecio.Text), 
-                            Marca = CBMarca.SelectedItem as Marca, 
-                            Condicion = CBEstado.SelectedItem as Condicion 
-                        };
-
+                    try
+                    {
                         productoNegocio = new ProductoNegocio();
-                        productoNegocio.guardarProducto(productoGuardar);
-
+                        productoNegocio.validarDatos(productoGuardar); // Validar en base de datos
+                        productoNegocio.guardarProducto(productoGuardar); // Guardar si valida
 
                         LValido.Text = "Producto agregado exitosamente.";
-
                         LimpiarCampos();
                         CargarCondicion();
                         CargarProductos();
-                        CargarMarcas();
+                        cargarMarcas();
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("Error al validar el producto: " + ex.Message, "Validación fallida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.seleccionandDatos();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error inesperado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.seleccionandDatos();
                     }
                 }
             }
         }
+
 
         private void LimpiarCampos()
         {
@@ -371,7 +211,7 @@ namespace ProyectoTaller.Views.Administradores
                 }
                 else
                 {
-                    
+
 
 
                     CBMarca.SelectedIndex = -1;
@@ -385,7 +225,12 @@ namespace ProyectoTaller.Views.Administradores
                 }
 
                 LValido.Text = string.Empty;
+                TModelo.ReadOnly = false;
+                TModelo.BackColor = Color.White;
+                TModelo.Clear();
                 LimpiarMensajesDeValidacion();
+                cargarMarcas();
+                
             }
         }
 
@@ -491,32 +336,7 @@ namespace ProyectoTaller.Views.Administradores
 
                 if (result == DialogResult.Yes)
                 {
-                    filaSeleccionadaIndex = DGProductos.SelectedRows[0].Index;
-
-                    string marcaNombre = DGProductos.Rows[filaSeleccionadaIndex].Cells["Marca"].Value.ToString();
-                    string condicionDescripcion = DGProductos.Rows[filaSeleccionadaIndex].Cells["Condicion"].Value.ToString();
-
-
-                    CBMarca.SelectedItem = DGProductos.Rows[filaSeleccionadaIndex].Cells["Marca"].Value.ToString();
-                    TNombreProducto.Text = DGProductos.Rows[filaSeleccionadaIndex].Cells["Nombre"].Value.ToString();
-                    TModelo.Text = DGProductos.Rows[filaSeleccionadaIndex].Cells["Modelo"].Value.ToString();
-                    TSo.Text = DGProductos.Rows[filaSeleccionadaIndex].Cells["SistemaOperativo"].Value.ToString();
-                    TAlmacenamiento.Text = DGProductos.Rows[filaSeleccionadaIndex].Cells["Almacenamiento"].Value.ToString().Replace("GB", ""); ;
-                    TRam.Text = DGProductos.Rows[filaSeleccionadaIndex].Cells["Ram"].Value.ToString().Replace("GB", "");
-                    TStock.Text = DGProductos.Rows[filaSeleccionadaIndex].Cells["Stock"].Value.ToString();
-                    TPrecio.Text = DGProductos.Rows[filaSeleccionadaIndex].Cells["Precio"].Value.ToString();
-                    CBEstado.SelectedItem = DGProductos.Rows[filaSeleccionadaIndex].Cells["Condicion"].Value.ToString();
-
-                    CBMarca.SelectedItem = CBMarca.Items.Cast<Marca>().FirstOrDefault(m => m.Nombre_Marca == marcaNombre);
-
-                    
-                    CBEstado.SelectedItem = CBEstado.Items.Cast<Condicion>().FirstOrDefault(c => c.Descripcion_Condicion == condicionDescripcion);
-
-                    TModelo.ReadOnly = true;
-                    TModelo.BackColor = Color.LightGray;
-                    editando = true;
-
-                    BAgregar.Text = "Modificar";
+                    this.seleccionandDatos();
                 }
             }
             else
@@ -525,27 +345,78 @@ namespace ProyectoTaller.Views.Administradores
             }
         }
 
+        public void seleccionandDatos() {
+            filaSeleccionadaIndex = DGProductos.SelectedRows[0].Index;
+
+            string marcaNombre = DGProductos.Rows[filaSeleccionadaIndex].Cells["Marca"].Value.ToString();
+            string condicionDescripcion = DGProductos.Rows[filaSeleccionadaIndex].Cells["Condicion"].Value.ToString();
+
+
+            CBMarca.SelectedItem = DGProductos.Rows[filaSeleccionadaIndex].Cells["Marca"].Value.ToString();
+            TNombreProducto.Text = DGProductos.Rows[filaSeleccionadaIndex].Cells["Nombre"].Value.ToString();
+            TModelo.Text = DGProductos.Rows[filaSeleccionadaIndex].Cells["Modelo"].Value.ToString();
+            TSo.Text = DGProductos.Rows[filaSeleccionadaIndex].Cells["SistemaOperativo"].Value.ToString();
+            TAlmacenamiento.Text = DGProductos.Rows[filaSeleccionadaIndex].Cells["Almacenamiento"].Value.ToString().Replace("GB", ""); ;
+            TRam.Text = DGProductos.Rows[filaSeleccionadaIndex].Cells["Ram"].Value.ToString().Replace("GB", "");
+            TStock.Text = DGProductos.Rows[filaSeleccionadaIndex].Cells["Stock"].Value.ToString();
+            TPrecio.Text = DGProductos.Rows[filaSeleccionadaIndex].Cells["Precio"].Value.ToString();
+            CBEstado.SelectedItem = DGProductos.Rows[filaSeleccionadaIndex].Cells["Condicion"].Value.ToString();
+
+            CBMarca.SelectedItem = CBMarca.Items.Cast<Marca>().FirstOrDefault(m => m.Nombre_Marca == marcaNombre);
+
+
+            CBEstado.SelectedItem = CBEstado.Items.Cast<Condicion>().FirstOrDefault(c => c.Descripcion_Condicion == condicionDescripcion);
+
+            TModelo.ReadOnly = true;
+            TModelo.BackColor = Color.LightGray;
+            editando = true;
+
+            BAgregar.Text = "Modificar";
+
+        }
+
         private void BEliminar_Click(object sender, EventArgs e)
         {
             if (DGProductos.SelectedRows.Count > 0)
             {
-                DialogResult result = MessageBox.Show("¿Está seguro de que desea eliminar el producto seleccionado?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("¿Está seguro de que desea cambiar el estado del producto seleccionado?", "Confirmar cambio de estado", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
-                    foreach (DataGridViewRow row in DGProductos.SelectedRows)
+                    var modeloCell = DGProductos.SelectedRows[0].Cells["Modelo"].Value;
+
+                    if (modeloCell != null && !string.IsNullOrEmpty(modeloCell.ToString()))
                     {
-                        if (!row.IsNewRow)
+                        string modeloProducto = modeloCell.ToString();
+
+                        try
                         {
-                            MessageBox.Show("Producto eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            DGProductos.Rows.Remove(row);
+                            ProductoNegocio productoNegocio = new ProductoNegocio();
+                            productoNegocio.modificarEstadoProducto(modeloProducto);
+
+                            MessageBox.Show("Estado del producto actualizado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                       
+                            CargarProductos();
                         }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show("Error al cambiar estado del producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error inesperado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El modelo del producto seleccionado está vacío o no se pudo obtener.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Seleccione una fila para eliminar.", "Error de eliminación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Seleccione una fila para cambiar el estado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -576,7 +447,7 @@ namespace ProyectoTaller.Views.Administradores
 
         private void CargarProductos()
         {
-            List <ProductoDTO> productos = productoNegocio.listarProductos();
+            List <ProductoDTO> productos = productoNegocio.cargarProductos();
             DGProductos.DataSource = productos;
         }
 
