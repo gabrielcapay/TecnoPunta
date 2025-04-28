@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 OPR/117.0.0.0" version="26.2.14">
   <diagram name="Page-1" id="2YBvvXClWsGukQMizWep">
-    <mxGraphModel dx="1108" dy="612" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1385" dy="765" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -204,7 +204,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="fA1Q9AlyYqTC2Zlf0_oz-35" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;verificarDatos(Producto)&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;labelBackgroundColor=none;" parent="1" vertex="1">
+        <mxCell id="fA1Q9AlyYqTC2Zlf0_oz-35" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;validarDatos(Producto)&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;labelBackgroundColor=none;" parent="1" vertex="1">
           <mxGeometry x="290" y="500" width="130" height="30" as="geometry" />
         </mxCell>
         <mxCell id="fA1Q9AlyYqTC2Zlf0_oz-38" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;dashed=1;labelBackgroundColor=none;fontColor=default;" parent="1" source="fA1Q9AlyYqTC2Zlf0_oz-33" target="aM9ryv3xv72pqoxQDRHE-2" edge="1">
@@ -284,7 +284,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="-8OF6dzAtthum4RwTBFR-7" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;verificarDatos(Producto)&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;labelBackgroundColor=none;" parent="1" vertex="1">
+        <mxCell id="-8OF6dzAtthum4RwTBFR-7" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;validarDatos(Producto)&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;labelBackgroundColor=none;" parent="1" vertex="1">
           <mxGeometry x="300" y="1170" width="130" height="30" as="geometry" />
         </mxCell>
         <mxCell id="-8OF6dzAtthum4RwTBFR-8" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;curved=0;" parent="1" source="aM9ryv3xv72pqoxQDRHE-2" target="fA1Q9AlyYqTC2Zlf0_oz-33" edge="1">
