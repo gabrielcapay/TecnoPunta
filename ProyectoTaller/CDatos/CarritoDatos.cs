@@ -3,6 +3,7 @@ using ProyectoTaller.CModelos;
 using ProyectoTaller.Views.Vendedor;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -376,5 +377,63 @@ namespace ProyectoTaller.CDatos
 
 
 
+    
+
+        public bool AgregarProductoAlCarritoo(int dniVendedor, string modeloProducto)
+        {
+            using (SqlConnection connection = conexion.ObtenerConexion())
+            {
+                connection.Open();
+
+                int cantidadExistente = -1;
+
+                // 1. Verificar si el producto ya está en el carrito
+                using (SqlCommand cmd = new SqlCommand("sp_ObtenerCantidadProductoEnCarrito", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@DNI_Vendedor", dniVendedor);
+                    cmd.Parameters.AddWithValue("@Modelo_Producto", modeloProducto);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            cantidadExistente = Convert.ToInt32(reader["Cantidad"]);
+                        }
+                    }
+                }
+
+                // 2. Agregar o actualizar producto en el carrito
+                string procedimiento = (cantidadExistente != -1)
+                    ? "sp_ActualizarCantidadProductoEnCarrito"
+                    : "sp_AgregarProductoAlCarrito";
+
+                using (SqlCommand cmd = new SqlCommand(procedimiento, connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@DNI_Vendedor", dniVendedor);
+                    cmd.Parameters.AddWithValue("@Modelo_Producto", modeloProducto);
+                    cmd.ExecuteNonQuery();
+                }
+
+                // 3. Descontar stock VER....
+                using (SqlCommand cmd = new SqlCommand("sp_ActualizarStockProducto", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Modelo_Producto", modeloProducto);
+                    cmd.ExecuteNonQuery();
+                }
+
+                // 4. Actualizar total del carrito
+                using (SqlCommand cmd = new SqlCommand("sp_ActualizarTotalCarrito", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@DNI_Vendedor", dniVendedor);
+                    cmd.ExecuteNonQuery();
+                }
+
+                return true;
+            }
+        }
     }
 }

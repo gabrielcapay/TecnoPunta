@@ -7,12 +7,14 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ProyectoTaller.CNegocio
 {
     public class CarritoNegocio
     {
         private CarritoDatos carritoDatos;
+        private ProductoDatosPA productoNegocio;
 
         public CarritoDTO cargarCarito(int dniVendedor)
         {
@@ -38,8 +40,20 @@ namespace ProyectoTaller.CNegocio
 
         public bool agregarProducto(string modelo, int dniVendedor)
         {
-            carritoDatos = new CarritoDatos();
-            return carritoDatos.AgregarProductoAlCarrito(dniVendedor, modelo);
+            productoNegocio = new ProductoDatosPA();
+            if (productoNegocio.stockDisponible(modelo)) //verificaStock
+            {
+                carritoDatos = new CarritoDatos();
+                productoNegocio.DisminuirStock(modelo);
+                return carritoDatos.AgregarProductoAlCarrito(dniVendedor, modelo);
+            }
+            else
+            {
+                MessageBox.Show("No hay stock disponible para este producto.", "Stock agotado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+
 
         }
 

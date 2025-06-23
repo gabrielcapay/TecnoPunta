@@ -221,6 +221,47 @@ namespace ProyectoTaller.CDatos
 
 
         }
+
+        public void DisminuirStock(string modeloProducto)
+        {
+            using (SqlConnection connection = conexion.ObtenerConexion())
+            {
+                string procedimiento = "sp_ActualizarStockProducto";
+
+                using (SqlCommand cmd = new SqlCommand(procedimiento, connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Modelo_Producto", modeloProducto);
+
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        public bool stockDisponible(string modeloProducto)
+        {
+            using (SqlConnection connection = conexion.ObtenerConexion())
+            {
+                string query = @"
+            SELECT 1 
+            FROM Productos 
+            WHERE Modelo_Producto = @Modelo_Producto 
+              AND Stock_Producto > 0";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Modelo_Producto", modeloProducto);
+
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        return reader.Read(); // True si existe al menos un registro
+                    }
+                }
+            }
+        }
     }
 }
 

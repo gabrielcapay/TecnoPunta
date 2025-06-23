@@ -1,6 +1,7 @@
 ﻿using ProyectoTaller.CModelos;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,34 @@ namespace ProyectoTaller.CDatos
     public class ProductoDatos
     {
         private ConexionBD conexion = new ConexionBD();
+
+        public bool stockDisponible(string modeloProducto)
+        {
+            using (SqlConnection connection = conexion.ObtenerConexion())
+            {
+                string query = @"
+            SELECT 1 
+            FROM Productos 
+            WHERE Modelo_Producto = @Modelo_Producto 
+              AND Stock_Producto > 0";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Modelo_Producto", modeloProducto);
+
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        return reader.Read(); // True si existe al menos un registro
+                    }
+                }
+            }
+        }
         public List<Producto> ObtenerProductos(){
 
             List<Producto> listaProducto = new List<Producto>();
+
+           
             
             using (SqlConnection connection = conexion.ObtenerConexion())
             {

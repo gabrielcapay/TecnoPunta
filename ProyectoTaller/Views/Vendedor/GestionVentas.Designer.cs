@@ -45,10 +45,9 @@
             // PBImagenVentas
             // 
             this.PBImagenVentas.Image = global::ProyectoTaller.Properties.Resources.VentasTitulo;
-            this.PBImagenVentas.Location = new System.Drawing.Point(16, 15);
-            this.PBImagenVentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PBImagenVentas.Location = new System.Drawing.Point(12, 12);
             this.PBImagenVentas.Name = "PBImagenVentas";
-            this.PBImagenVentas.Size = new System.Drawing.Size(87, 82);
+            this.PBImagenVentas.Size = new System.Drawing.Size(65, 67);
             this.PBImagenVentas.TabIndex = 29;
             this.PBImagenVentas.TabStop = false;
             // 
@@ -56,10 +55,9 @@
             // 
             this.LTituloGestionVentas.AutoSize = true;
             this.LTituloGestionVentas.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTituloGestionVentas.Location = new System.Drawing.Point(105, 17);
-            this.LTituloGestionVentas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LTituloGestionVentas.Location = new System.Drawing.Point(79, 14);
             this.LTituloGestionVentas.Name = "LTituloGestionVentas";
-            this.LTituloGestionVentas.Size = new System.Drawing.Size(358, 44);
+            this.LTituloGestionVentas.Size = new System.Drawing.Size(282, 36);
             this.LTituloGestionVentas.TabIndex = 30;
             this.LTituloGestionVentas.Text = "Informes de ventas";
             // 
@@ -67,10 +65,9 @@
             // 
             this.LVentaDelDia.AutoSize = true;
             this.LVentaDelDia.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LVentaDelDia.Location = new System.Drawing.Point(169, 97);
-            this.LVentaDelDia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LVentaDelDia.Location = new System.Drawing.Point(127, 79);
             this.LVentaDelDia.Name = "LVentaDelDia";
-            this.LVentaDelDia.Size = new System.Drawing.Size(286, 44);
+            this.LVentaDelDia.Size = new System.Drawing.Size(226, 36);
             this.LVentaDelDia.TabIndex = 38;
             this.LVentaDelDia.Text = "Ventas del dia:";
             // 
@@ -78,10 +75,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(652, 97);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(489, 79);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(263, 44);
+            this.label1.Size = new System.Drawing.Size(207, 36);
             this.label1.TabIndex = 39;
             this.label1.Text = "Importe Total:";
             // 
@@ -89,10 +85,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(427, 181);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(320, 147);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(335, 44);
+            this.label2.Size = new System.Drawing.Size(264, 36);
             this.label2.TabIndex = 40;
             this.label2.Text = "Ventas realizadas";
             // 
@@ -100,11 +95,10 @@
             // 
             this.DGVentasVendedor.AllowUserToAddRows = false;
             this.DGVentasVendedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVentasVendedor.Location = new System.Drawing.Point(37, 240);
-            this.DGVentasVendedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DGVentasVendedor.Location = new System.Drawing.Point(28, 195);
             this.DGVentasVendedor.Name = "DGVentasVendedor";
             this.DGVentasVendedor.RowHeadersWidth = 51;
-            this.DGVentasVendedor.Size = new System.Drawing.Size(1099, 297);
+            this.DGVentasVendedor.Size = new System.Drawing.Size(824, 241);
             this.DGVentasVendedor.TabIndex = 41;
             // 
             // BVerDetalle
@@ -114,10 +108,9 @@
             this.BVerDetalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BVerDetalle.Image = global::ProyectoTaller.Properties.Resources.Ver_detalle;
             this.BVerDetalle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BVerDetalle.Location = new System.Drawing.Point(972, 161);
-            this.BVerDetalle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BVerDetalle.Location = new System.Drawing.Point(729, 131);
             this.BVerDetalle.Name = "BVerDetalle";
-            this.BVerDetalle.Size = new System.Drawing.Size(164, 64);
+            this.BVerDetalle.Size = new System.Drawing.Size(123, 52);
             this.BVerDetalle.TabIndex = 42;
             this.BVerDetalle.Text = "Ver Detalle ";
             this.BVerDetalle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -131,41 +124,39 @@
             this.BImprimirInformeVentaVendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BImprimirInformeVentaVendedor.Image = global::ProyectoTaller.Properties.Resources.GuardarProducto;
             this.BImprimirInformeVentaVendedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BImprimirInformeVentaVendedor.Location = new System.Drawing.Point(972, 545);
-            this.BImprimirInformeVentaVendedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BImprimirInformeVentaVendedor.Location = new System.Drawing.Point(729, 443);
             this.BImprimirInformeVentaVendedor.Name = "BImprimirInformeVentaVendedor";
-            this.BImprimirInformeVentaVendedor.Size = new System.Drawing.Size(164, 64);
+            this.BImprimirInformeVentaVendedor.Size = new System.Drawing.Size(123, 52);
             this.BImprimirInformeVentaVendedor.TabIndex = 43;
             this.BImprimirInformeVentaVendedor.Text = "Imprimir";
             this.BImprimirInformeVentaVendedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BImprimirInformeVentaVendedor.UseVisualStyleBackColor = true;
+            this.BImprimirInformeVentaVendedor.Click += new System.EventHandler(this.BImprimirInformeVentaVendedor_Click);
             // 
             // LBVentasDiaPrint
             // 
             this.LBVentasDiaPrint.AutoSize = true;
             this.LBVentasDiaPrint.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBVentasDiaPrint.Location = new System.Drawing.Point(463, 97);
-            this.LBVentasDiaPrint.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBVentasDiaPrint.Location = new System.Drawing.Point(347, 79);
             this.LBVentasDiaPrint.Name = "LBVentasDiaPrint";
-            this.LBVentasDiaPrint.Size = new System.Drawing.Size(0, 44);
+            this.LBVentasDiaPrint.Size = new System.Drawing.Size(0, 36);
             this.LBVentasDiaPrint.TabIndex = 44;
             // 
             // LImporteTotalPrint
             // 
             this.LImporteTotalPrint.AutoSize = true;
             this.LImporteTotalPrint.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LImporteTotalPrint.Location = new System.Drawing.Point(923, 97);
-            this.LImporteTotalPrint.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LImporteTotalPrint.Location = new System.Drawing.Point(692, 79);
             this.LImporteTotalPrint.Name = "LImporteTotalPrint";
-            this.LImporteTotalPrint.Size = new System.Drawing.Size(0, 44);
+            this.LImporteTotalPrint.Size = new System.Drawing.Size(0, 36);
             this.LImporteTotalPrint.TabIndex = 45;
             // 
             // GestionVentas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(1183, 624);
+            this.ClientSize = new System.Drawing.Size(887, 507);
             this.Controls.Add(this.LImporteTotalPrint);
             this.Controls.Add(this.LBVentasDiaPrint);
             this.Controls.Add(this.BImprimirInformeVentaVendedor);
@@ -176,7 +167,6 @@
             this.Controls.Add(this.LVentaDelDia);
             this.Controls.Add(this.LTituloGestionVentas);
             this.Controls.Add(this.PBImagenVentas);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "GestionVentas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestionVentas";

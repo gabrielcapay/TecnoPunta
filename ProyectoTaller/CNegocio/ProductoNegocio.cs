@@ -12,6 +12,21 @@ namespace ProyectoTaller.CNegocio
     public class ProductoNegocio
     {
         private ProductoDatosPA productosDatos;
+
+        public bool stockDisponible(string modelo)
+        {
+            productosDatos = new ProductoDatosPA();
+            
+            return productosDatos.stockDisponible(modelo);
+        }
+
+        public void DisminuirStock(string modeloProducto)
+        {
+            productosDatos = new ProductoDatosPA();
+
+            productosDatos.DisminuirStock(modeloProducto);
+        }
+
         public List<ProductoDTO> cargarProductos() { 
             List<ProductoDTO> listaProductos = new List<ProductoDTO>();
             productosDatos = new ProductoDatosPA();

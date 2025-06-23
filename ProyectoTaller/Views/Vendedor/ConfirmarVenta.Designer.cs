@@ -64,40 +64,37 @@
             // 
             this.LTituloCarrito.AutoSize = true;
             this.LTituloCarrito.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTituloCarrito.Location = new System.Drawing.Point(36, 29);
-            this.LTituloCarrito.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LTituloCarrito.Location = new System.Drawing.Point(27, 24);
             this.LTituloCarrito.Name = "LTituloCarrito";
-            this.LTituloCarrito.Size = new System.Drawing.Size(321, 44);
+            this.LTituloCarrito.Size = new System.Drawing.Size(219, 36);
             this.LTituloCarrito.TabIndex = 2;
-            this.LTituloCarrito.Text = "Finalizar Compra";
+            this.LTituloCarrito.Text = "Finalizar Venta";
+            this.LTituloCarrito.Click += new System.EventHandler(this.LTituloCarrito_Click);
             // 
             // LNombreCliente
             // 
             this.LNombreCliente.AutoSize = true;
             this.LNombreCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LNombreCliente.Location = new System.Drawing.Point(221, 132);
-            this.LNombreCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LNombreCliente.Location = new System.Drawing.Point(166, 107);
             this.LNombreCliente.Name = "LNombreCliente";
-            this.LNombreCliente.Size = new System.Drawing.Size(136, 21);
+            this.LNombreCliente.Size = new System.Drawing.Size(105, 17);
             this.LNombreCliente.TabIndex = 52;
             this.LNombreCliente.Text = "DNI del Cliente";
             // 
             // BXDNIClienteFinalizarCompra
             // 
-            this.BXDNIClienteFinalizarCompra.Location = new System.Drawing.Point(388, 131);
-            this.BXDNIClienteFinalizarCompra.Margin = new System.Windows.Forms.Padding(4);
+            this.BXDNIClienteFinalizarCompra.Location = new System.Drawing.Point(291, 106);
             this.BXDNIClienteFinalizarCompra.Name = "BXDNIClienteFinalizarCompra";
-            this.BXDNIClienteFinalizarCompra.Size = new System.Drawing.Size(272, 22);
+            this.BXDNIClienteFinalizarCompra.Size = new System.Drawing.Size(205, 20);
             this.BXDNIClienteFinalizarCompra.TabIndex = 51;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(221, 191);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(166, 155);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 20);
+            this.label1.Size = new System.Drawing.Size(64, 17);
             this.label1.TabIndex = 54;
             this.label1.Text = "Nombres:";
             // 
@@ -105,10 +102,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(221, 223);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(166, 181);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 20);
+            this.label2.Size = new System.Drawing.Size(66, 17);
             this.label2.TabIndex = 55;
             this.label2.Text = "Apellidos:";
             // 
@@ -116,10 +112,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(588, 191);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(441, 155);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 20);
+            this.label3.Size = new System.Drawing.Size(62, 17);
             this.label3.TabIndex = 56;
             this.label3.Text = "Telefono:";
             // 
@@ -127,10 +122,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(588, 223);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(441, 181);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 20);
+            this.label4.Size = new System.Drawing.Size(69, 17);
             this.label4.TabIndex = 57;
             this.label4.Text = "Direccion:";
             // 
@@ -138,10 +132,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(223, 254);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(167, 206);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 20);
+            this.label5.Size = new System.Drawing.Size(32, 17);
             this.label5.TabIndex = 58;
             this.label5.Text = "DNI:";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -150,10 +143,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(588, 254);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(441, 206);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 20);
+            this.label6.Size = new System.Drawing.Size(52, 17);
             this.label6.TabIndex = 59;
             this.label6.Text = "Correo:";
             // 
@@ -162,10 +154,9 @@
             this.LNombreCompraFinCompra.AutoSize = true;
             this.LNombreCompraFinCompra.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LNombreCompraFinCompra.ForeColor = System.Drawing.Color.MediumBlue;
-            this.LNombreCompraFinCompra.Location = new System.Drawing.Point(319, 191);
-            this.LNombreCompraFinCompra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LNombreCompraFinCompra.Location = new System.Drawing.Point(239, 155);
             this.LNombreCompraFinCompra.Name = "LNombreCompraFinCompra";
-            this.LNombreCompraFinCompra.Size = new System.Drawing.Size(0, 20);
+            this.LNombreCompraFinCompra.Size = new System.Drawing.Size(0, 17);
             this.LNombreCompraFinCompra.TabIndex = 60;
             // 
             // LApellidosCompraFinCompra
@@ -173,11 +164,10 @@
             this.LApellidosCompraFinCompra.AutoSize = true;
             this.LApellidosCompraFinCompra.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LApellidosCompraFinCompra.ForeColor = System.Drawing.Color.MediumBlue;
-            this.LApellidosCompraFinCompra.Location = new System.Drawing.Point(319, 223);
-            this.LApellidosCompraFinCompra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LApellidosCompraFinCompra.Location = new System.Drawing.Point(239, 181);
             this.LApellidosCompraFinCompra.Name = "LApellidosCompraFinCompra";
             this.LApellidosCompraFinCompra.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LApellidosCompraFinCompra.Size = new System.Drawing.Size(0, 20);
+            this.LApellidosCompraFinCompra.Size = new System.Drawing.Size(0, 17);
             this.LApellidosCompraFinCompra.TabIndex = 61;
             // 
             // LDNICompraFinCompra
@@ -185,10 +175,9 @@
             this.LDNICompraFinCompra.AutoSize = true;
             this.LDNICompraFinCompra.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LDNICompraFinCompra.ForeColor = System.Drawing.Color.MediumBlue;
-            this.LDNICompraFinCompra.Location = new System.Drawing.Point(319, 254);
-            this.LDNICompraFinCompra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LDNICompraFinCompra.Location = new System.Drawing.Point(239, 206);
             this.LDNICompraFinCompra.Name = "LDNICompraFinCompra";
-            this.LDNICompraFinCompra.Size = new System.Drawing.Size(0, 20);
+            this.LDNICompraFinCompra.Size = new System.Drawing.Size(0, 17);
             this.LDNICompraFinCompra.TabIndex = 62;
             this.LDNICompraFinCompra.Click += new System.EventHandler(this.LDNICompraFinCompra_Click);
             // 
@@ -197,10 +186,9 @@
             this.LCorreoCompraFinCompra.AutoSize = true;
             this.LCorreoCompraFinCompra.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LCorreoCompraFinCompra.ForeColor = System.Drawing.Color.MediumBlue;
-            this.LCorreoCompraFinCompra.Location = new System.Drawing.Point(685, 254);
-            this.LCorreoCompraFinCompra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LCorreoCompraFinCompra.Location = new System.Drawing.Point(514, 206);
             this.LCorreoCompraFinCompra.Name = "LCorreoCompraFinCompra";
-            this.LCorreoCompraFinCompra.Size = new System.Drawing.Size(0, 20);
+            this.LCorreoCompraFinCompra.Size = new System.Drawing.Size(0, 17);
             this.LCorreoCompraFinCompra.TabIndex = 65;
             // 
             // LDireccionCompraFinCompra
@@ -208,10 +196,9 @@
             this.LDireccionCompraFinCompra.AutoSize = true;
             this.LDireccionCompraFinCompra.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LDireccionCompraFinCompra.ForeColor = System.Drawing.Color.MediumBlue;
-            this.LDireccionCompraFinCompra.Location = new System.Drawing.Point(685, 223);
-            this.LDireccionCompraFinCompra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LDireccionCompraFinCompra.Location = new System.Drawing.Point(514, 181);
             this.LDireccionCompraFinCompra.Name = "LDireccionCompraFinCompra";
-            this.LDireccionCompraFinCompra.Size = new System.Drawing.Size(0, 20);
+            this.LDireccionCompraFinCompra.Size = new System.Drawing.Size(0, 17);
             this.LDireccionCompraFinCompra.TabIndex = 64;
             // 
             // LTelefonoCompraFinCompra
@@ -219,20 +206,18 @@
             this.LTelefonoCompraFinCompra.AutoSize = true;
             this.LTelefonoCompraFinCompra.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LTelefonoCompraFinCompra.ForeColor = System.Drawing.Color.MediumBlue;
-            this.LTelefonoCompraFinCompra.Location = new System.Drawing.Point(685, 191);
-            this.LTelefonoCompraFinCompra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LTelefonoCompraFinCompra.Location = new System.Drawing.Point(514, 155);
             this.LTelefonoCompraFinCompra.Name = "LTelefonoCompraFinCompra";
-            this.LTelefonoCompraFinCompra.Size = new System.Drawing.Size(0, 20);
+            this.LTelefonoCompraFinCompra.Size = new System.Drawing.Size(0, 17);
             this.LTelefonoCompraFinCompra.TabIndex = 63;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(87, 302);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(65, 245);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(176, 23);
+            this.label7.Size = new System.Drawing.Size(140, 19);
             this.label7.TabIndex = 66;
             this.label7.Text = "Metodo de pago";
             // 
@@ -240,10 +225,9 @@
             // 
             this.CBBilleteraVirtual.AutoSize = true;
             this.CBBilleteraVirtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBBilleteraVirtual.Location = new System.Drawing.Point(537, 347);
-            this.CBBilleteraVirtual.Margin = new System.Windows.Forms.Padding(4);
+            this.CBBilleteraVirtual.Location = new System.Drawing.Point(403, 282);
             this.CBBilleteraVirtual.Name = "CBBilleteraVirtual";
-            this.CBBilleteraVirtual.Size = new System.Drawing.Size(126, 22);
+            this.CBBilleteraVirtual.Size = new System.Drawing.Size(108, 19);
             this.CBBilleteraVirtual.TabIndex = 69;
             this.CBBilleteraVirtual.Text = "Billetera Virtual";
             this.CBBilleteraVirtual.UseVisualStyleBackColor = true;
@@ -253,10 +237,9 @@
             // 
             this.CBTarjetaDeDebito.AutoSize = true;
             this.CBTarjetaDeDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBTarjetaDeDebito.Location = new System.Drawing.Point(376, 347);
-            this.CBTarjetaDeDebito.Margin = new System.Windows.Forms.Padding(4);
+            this.CBTarjetaDeDebito.Location = new System.Drawing.Point(282, 282);
             this.CBTarjetaDeDebito.Name = "CBTarjetaDeDebito";
-            this.CBTarjetaDeDebito.Size = new System.Drawing.Size(142, 22);
+            this.CBTarjetaDeDebito.Size = new System.Drawing.Size(120, 19);
             this.CBTarjetaDeDebito.TabIndex = 68;
             this.CBTarjetaDeDebito.Text = "Tarjeta de Debito";
             this.CBTarjetaDeDebito.UseVisualStyleBackColor = true;
@@ -266,10 +249,9 @@
             // 
             this.CBTarjetaDeCredito.AutoSize = true;
             this.CBTarjetaDeCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBTarjetaDeCredito.Location = new System.Drawing.Point(204, 347);
-            this.CBTarjetaDeCredito.Margin = new System.Windows.Forms.Padding(4);
+            this.CBTarjetaDeCredito.Location = new System.Drawing.Point(153, 282);
             this.CBTarjetaDeCredito.Name = "CBTarjetaDeCredito";
-            this.CBTarjetaDeCredito.Size = new System.Drawing.Size(147, 22);
+            this.CBTarjetaDeCredito.Size = new System.Drawing.Size(123, 19);
             this.CBTarjetaDeCredito.TabIndex = 67;
             this.CBTarjetaDeCredito.Text = "Tarjeta de Credito";
             this.CBTarjetaDeCredito.UseVisualStyleBackColor = true;
@@ -279,10 +261,9 @@
             // 
             this.CBEfectivo.AutoSize = true;
             this.CBEfectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBEfectivo.Location = new System.Drawing.Point(677, 347);
-            this.CBEfectivo.Margin = new System.Windows.Forms.Padding(4);
+            this.CBEfectivo.Location = new System.Drawing.Point(508, 282);
             this.CBEfectivo.Name = "CBEfectivo";
-            this.CBEfectivo.Size = new System.Drawing.Size(83, 22);
+            this.CBEfectivo.Size = new System.Drawing.Size(68, 19);
             this.CBEfectivo.TabIndex = 70;
             this.CBEfectivo.Text = "Efectivo";
             this.CBEfectivo.UseVisualStyleBackColor = true;
@@ -292,10 +273,9 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(87, 96);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(65, 78);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 23);
+            this.label8.Size = new System.Drawing.Size(63, 19);
             this.label8.TabIndex = 71;
             this.label8.Text = "Cliente";
             // 
@@ -303,10 +283,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(87, 390);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(65, 317);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(152, 23);
+            this.label9.Size = new System.Drawing.Size(122, 19);
             this.label9.TabIndex = 72;
             this.label9.Text = "DetalleFactura";
             // 
@@ -314,22 +293,21 @@
             // 
             this.DGCarrito.AllowUserToAddRows = false;
             this.DGCarrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGCarrito.Location = new System.Drawing.Point(91, 429);
-            this.DGCarrito.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DGCarrito.Location = new System.Drawing.Point(68, 349);
+            this.DGCarrito.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DGCarrito.Name = "DGCarrito";
             this.DGCarrito.RowHeadersWidth = 51;
             this.DGCarrito.RowTemplate.Height = 24;
-            this.DGCarrito.Size = new System.Drawing.Size(874, 139);
+            this.DGCarrito.Size = new System.Drawing.Size(656, 113);
             this.DGCarrito.TabIndex = 73;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(87, 601);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(65, 488);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(101, 39);
+            this.label10.Size = new System.Drawing.Size(82, 32);
             this.label10.TabIndex = 74;
             this.label10.Text = "Total:";
             // 
@@ -337,17 +315,17 @@
             // 
             this.LTotalFinalizarCompra.AutoSize = true;
             this.LTotalFinalizarCompra.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTotalFinalizarCompra.Location = new System.Drawing.Point(197, 601);
-            this.LTotalFinalizarCompra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LTotalFinalizarCompra.Location = new System.Drawing.Point(148, 488);
             this.LTotalFinalizarCompra.Name = "LTotalFinalizarCompra";
-            this.LTotalFinalizarCompra.Size = new System.Drawing.Size(0, 39);
+            this.LTotalFinalizarCompra.Size = new System.Drawing.Size(0, 32);
             this.LTotalFinalizarCompra.TabIndex = 75;
             // 
             // BBuscarClienteFinalizarCompra
             // 
-            this.BBuscarClienteFinalizarCompra.Location = new System.Drawing.Point(689, 128);
+            this.BBuscarClienteFinalizarCompra.Location = new System.Drawing.Point(517, 104);
+            this.BBuscarClienteFinalizarCompra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BBuscarClienteFinalizarCompra.Name = "BBuscarClienteFinalizarCompra";
-            this.BBuscarClienteFinalizarCompra.Size = new System.Drawing.Size(101, 28);
+            this.BBuscarClienteFinalizarCompra.Size = new System.Drawing.Size(76, 23);
             this.BBuscarClienteFinalizarCompra.TabIndex = 76;
             this.BBuscarClienteFinalizarCompra.Text = "Buscar";
             this.BBuscarClienteFinalizarCompra.UseVisualStyleBackColor = true;
@@ -360,12 +338,11 @@
             this.BConfirmarCompraFinalizarCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BConfirmarCompraFinalizarCompra.Image = global::ProyectoTaller.Properties.Resources.Check;
             this.BConfirmarCompraFinalizarCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BConfirmarCompraFinalizarCompra.Location = new System.Drawing.Point(714, 596);
-            this.BConfirmarCompraFinalizarCompra.Margin = new System.Windows.Forms.Padding(4);
+            this.BConfirmarCompraFinalizarCompra.Location = new System.Drawing.Point(536, 484);
             this.BConfirmarCompraFinalizarCompra.Name = "BConfirmarCompraFinalizarCompra";
-            this.BConfirmarCompraFinalizarCompra.Size = new System.Drawing.Size(219, 64);
+            this.BConfirmarCompraFinalizarCompra.Size = new System.Drawing.Size(164, 52);
             this.BConfirmarCompraFinalizarCompra.TabIndex = 77;
-            this.BConfirmarCompraFinalizarCompra.Text = "Confirmar Compra";
+            this.BConfirmarCompraFinalizarCompra.Text = "Confirmar Venta";
             this.BConfirmarCompraFinalizarCompra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BConfirmarCompraFinalizarCompra.UseVisualStyleBackColor = true;
             this.BConfirmarCompraFinalizarCompra.Click += new System.EventHandler(this.BConfirmarCompraFinalizarCompra_Click);
@@ -375,10 +352,9 @@
             this.LValiBuscarCliente.AutoSize = true;
             this.LValiBuscarCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LValiBuscarCliente.ForeColor = System.Drawing.Color.Red;
-            this.LValiBuscarCliente.Location = new System.Drawing.Point(393, 157);
-            this.LValiBuscarCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LValiBuscarCliente.Location = new System.Drawing.Point(295, 128);
             this.LValiBuscarCliente.Name = "LValiBuscarCliente";
-            this.LValiBuscarCliente.Size = new System.Drawing.Size(0, 20);
+            this.LValiBuscarCliente.Size = new System.Drawing.Size(0, 17);
             this.LValiBuscarCliente.TabIndex = 78;
             // 
             // label11
@@ -386,18 +362,17 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label11.Location = new System.Drawing.Point(506, 335);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(380, 272);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(0, 20);
+            this.label11.Size = new System.Drawing.Size(0, 17);
             this.label11.TabIndex = 79;
             // 
             // ConfirmarVenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1012, 690);
+            this.ClientSize = new System.Drawing.Size(759, 561);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.LValiBuscarCliente);
             this.Controls.Add(this.BConfirmarCompraFinalizarCompra);
@@ -427,6 +402,7 @@
             this.Controls.Add(this.LNombreCliente);
             this.Controls.Add(this.BXDNIClienteFinalizarCompra);
             this.Controls.Add(this.LTituloCarrito);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ConfirmarVenta";
             this.Text = "ConfirmarVenta";
             this.Load += new System.EventHandler(this.ConfirmarVenta_Load);

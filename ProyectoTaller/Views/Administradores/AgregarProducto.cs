@@ -143,12 +143,12 @@ namespace ProyectoTaller.Views.Administradores
                     catch (SqlException ex)
                     {
                         MessageBox.Show("Error al validar el producto: " + ex.Message, "Validación fallida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        this.seleccionandDatos();
+                       
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Error inesperado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        this.seleccionandDatos();
+                        
                     }
                 }
             }

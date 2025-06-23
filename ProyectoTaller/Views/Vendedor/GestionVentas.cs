@@ -48,5 +48,10 @@ namespace ProyectoTaller.Views.Vendedor
 
             detalleForm.ShowDialog();
         }
+
+        private void BImprimirInformeVentaVendedor_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

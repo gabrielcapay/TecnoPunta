@@ -107,9 +107,8 @@ namespace ProyectoTaller.Views.Vendedor
                     ventaNegocio = new VentaNegocio();
                     int idventa = ventaNegocio.rigistrarVenta(carritoParaVender, ObtenerMetodoPagoSeleccionado(), dniCliente, _dniUsuario);
                     var venta = ventaNegocio.buscarVentaPorId(idventa);
-                    var document = new InvoiceDocument(venta);
-                    document.crearDocumento();
-
+                    MessageBox.Show("La venta se registró correctamente.", "Venta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DGCarrito.DataSource = null;
 
 
 
@@ -304,6 +303,9 @@ namespace ProyectoTaller.Views.Vendedor
             return 0;
         }
 
+        private void LTituloCarrito_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
