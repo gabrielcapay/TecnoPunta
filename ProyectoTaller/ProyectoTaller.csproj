@@ -494,12 +494,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Questpdf\Logo.png" />
-    <Content Include="SQLPA\sp_ActualizarProducto.sql" />
-    <Content Include="SQLPA\sp_BuscarProductoPorModelo.sql" />
-    <Content Include="SQLPA\sp_cambiarEstadoProducto.sql" />
-    <Content Include="SQLPA\sp_GuardarProducto.sql" />
-    <Content Include="SQLPA\sp_ObtenerProductos.sql" />
-    <Content Include="SQLPA\sp_ValidadDatos.sql" />
+    <Content Include="ProcedimientosAlmacenados\sp_ActualizarCantidadProductoEnCarrito.sql" />
+    <Content Include="ProcedimientosAlmacenados\sp_ActualizarProducto.sql" />
+    <Content Include="ProcedimientosAlmacenados\sp_ActualizarStockProducto.sql" />
+    <Content Include="ProcedimientosAlmacenados\sp_ActualizarTotalCarrito.sql" />
+    <Content Include="ProcedimientosAlmacenados\sp_AgregarProductoAlCarrito.sql" />
+    <Content Include="ProcedimientosAlmacenados\sp_BuscarProductoPorModelo.sql" />
+    <Content Include="ProcedimientosAlmacenados\sp_cambiarEstadoProducto.sql" />
+    <Content Include="ProcedimientosAlmacenados\sp_GuardarProducto.sql" />
+    <Content Include="ProcedimientosAlmacenados\sp_ObtenerCantidadProductoEnCarrito.sql" />
+    <Content Include="ProcedimientosAlmacenados\sp_ObtenerProductos.sql" />
+    <Content Include="ProcedimientosAlmacenados\sp_ValidadDatos.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

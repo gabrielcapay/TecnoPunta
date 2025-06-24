@@ -117,3 +117,13 @@ namespace ProyectoTaller.CNegocio
         }
     }
 }
+CREATE PROCEDURE sp_ObtenerCantidadProductoEnCarrito
+    @DNI_Vendedor INT,
+    @Modelo_Producto VARCHAR(50)
+AS
+BEGIN
+    SELECT Cantidad 
+    FROM CarritoDetalle 
+    WHERE DNI_Vendedor = @DNI_Vendedor AND Producto = @Modelo_Producto
+END
+GO
